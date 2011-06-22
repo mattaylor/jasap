@@ -4,17 +4,24 @@
 	<style type="text/css"> 
   		@import "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojox/grid/resources/Grid.css";
     	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojox/grid/resources/claroGrid.css";
-    	body, html { width:100%; height:100%; margin:0; padding:0; overflow:hidden; }
+    	body, html { width:100%; height:100%; margin:0; padding:0; _overflow:hidden; }
     </style>
 	<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js" data-dojo-config="isDebug: true,parseOnLoad: true"></script> 
 	<script src="jasap.js"></script>
-	<script> dojo.addOnLoad(function() { 
-		new Jasap('Survey').load(); 
-		new Jasap('Assert').load(); 
+	<script> 
+		dojo.addOnLoad(function() {
+			var surveyApp = new Jasap('Survey', { view: 'splitView'}); 
+			//var assertApp = new Jasap('Assert', { view: 'tabedView', tabPosition:'left'});
+	
+			//console.log('survey : ', surveyApp); 
+			//console.log('assert : ', assertApp);
+			//surveyApp.show('splitView');
+		// new Jasap('Assert', {view:'splitView'}); 
 	})</script>
-</head><body class=" claro">
-	<div style="height:100%" dojoType="dijit.layout.BorderContainer" design="headline">
-		<div id="head" region="top" dojoType="dijit.layout.ContentPane">this is the head</div>
+</head><body _id='root' class=" claro">
+	<div _id="root" style="height:100%" dojoType="dijit.layout.BorderContainer" design="headline">
+		<div _id="root" region="top" dojoType="dijit.layout.ContentPane">this is the head</div>
 		<div id="root" region="center" dojoType="dijit.layout.TabContainer"></div>
 	</div>
-</body></html>
+</body>
+</html>
